@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Lumorium",
+  "scopeName": "source.lumorium",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#rule" },
+    { "include": "#directive" },
+    { "include": "#string" },
+    { "include": "#number" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.number-sign.lumorium", "match": "#.*$" }
+      ]
+    },
+    "rule": {
+      "patterns": [
+        { "name": "keyword.other.method.lumorium", "match": "^(\\s*)(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\\b" },
+        { "name": "keyword.operator.arrow.lumorium", "match": "=>"},
+        { "name": "meta.path.lumorium", "match": "\\s/(?:[^\\s]*)" }
+      ]
+    },
+    "directive": {
+      "patterns": [
+        { "name": "keyword.control.directive.lumorium", "match": "\\b(REPLY|FILE|EXEC)\\b" },
+        { "name": "constant.numeric.status.lumorium", "match": "\\b(1\\d\\d|2\\d\\d|3\\d\\d|4\\d\\d|5\\d\\d)\\b" },
+        { "name": "string.unquoted.mime.lumorium", "match": "\\b(?:application|text|image|audio|video|multipart|model)/[A-Za-z0-9.+_-]+(?:;\\s*charset=[A-Za-z0-9_-]+)?" },
+        { "name": "variable.other.assignment.lumorium", "match": "\\bCT=\\\"[^\\\"]*\\\"" }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.lumorium",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "name": "constant.character.escape.lumorium", "match": "\\\\.|\\\"" }
+          ]
+        }
+      ]
+    },
+    "number": {
+      "patterns": [
+        { "name": "constant.numeric.lumorium", "match": "\\b\\d+(?:\\.\\d+)?\\b" }
+      ]
+    }
+  },
+  "uuid": "9c3d3a9a-2c1a-4f1d-98b8-0a7bca4b6bd1"
+}
