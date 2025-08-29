@@ -1,0 +1,48 @@
+{
+  "name": "lumorium-vscode",
+  "displayName": "Lumorium",
+  "description": "Syntax highlighting, snippets, and basic validation for Lumorium .lum files.",
+  "version": "0.1.0",
+  "publisher": "Ian",
+  "engines": { "vscode": "^1.86.0" },
+  "icon": "images/icon-128.png",
+  "galleryBanner": { "color": "#0b111b", "theme": "dark" },
+  "keywords": ["lumorium", "proxy", "dsl", "http", "routes"],
+  "categories": ["Programming Languages"],
+  "repository": { "type": "git", "url": "https://github.com/ianbloc/Lumorium-VSCode" },
+  "bugs": { "url": "https://github.com/ianbloc/Lumorium-VSCode/issues" },
+  "homepage": "https://github.com/ianbloc/Lumorium-VSCode#readme",
+  "contributes": {
+    "languages": [
+      {
+        "id": "lumorium",
+        "aliases": ["Lumorium", "lumorium"],
+        "extensions": [".lum", ".lmr"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lumorium",
+        "scopeName": "source.lumorium",
+        "path": "./syntaxes/lumorium.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      { "language": "lumorium", "path": "./snippets/lumorium.code-snippets" }
+    ]
+  },
+  "activationEvents": ["onLanguage:lumorium"],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package || echo 'Install vsce: npm i -g @vscode/vsce'",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.86.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,8 @@
+**/.test/
+**/*.map
+**/*.ts
+node_modules/.bin
+.vscode/**
+.git/**
+.github/**
+# Keep images and syntaxes in the package!
