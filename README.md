@@ -18,7 +18,7 @@ Syntax highlighting, snippets, and diagnostics for `.lum` / `.lmr` scripts (Flux
 
 
 ## Getting Started
-1. Clone this folder: `git clone <this> lumorium-vscode` (or copy files into a folder).
+1. Clone this folder: `git clone https://github.com/ianbloc/Lumorium-VSCode.git` (or copy files into a folder).
 2. Install deps: `npm i`.
 3. Press `F5` in VS Code to launch the Extension Development Host.
 4. Open a `.lum` file and start typing.
@@ -26,4 +26,5 @@ Syntax highlighting, snippets, and diagnostics for `.lum` / `.lmr` scripts (Flux
 
 ## Packaging
 - Install: `npm i -g @vscode/vsce`
+
 - Build: `npm run package` → produces a `.vsix` you can install via VS Code (Extensions → … → Install from VSIX…).
