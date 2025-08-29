@@ -1,0 +1,30 @@
+{
+  "HTTP GET → REPLY": {
+    "prefix": "lum-get-reply",
+    "body": [
+      "GET ${1:/path} => REPLY ${2:200} ${3:application/json}; charset=utf-8 \"${4:{\\\"ok\\\":true}}\""
+    ],
+    "description": "GET rule replying with status + content-type"
+  },
+  "HTTP GET → FILE": {
+    "prefix": "lum-get-file",
+    "body": [
+      "GET ${1:/path} => FILE \"${2:data.json}\" ${3:application/json}; charset=utf-8"
+    ],
+    "description": "GET rule serving a static file"
+  },
+  "HTTP POST → EXEC (python -c)": {
+    "prefix": "lum-post-exec",
+    "body": [
+      "POST ${1:/path} => EXEC \"python -c \"import os,sys;print(open(os.environ['LMR_BODY_FILE']).read())\"\" CT=\"${2:text/plain}; charset=utf-8\""
+    ],
+    "description": "POST rule executing a one-liner python -c"
+  },
+  "HTTP GET → EXEC (query)": {
+    "prefix": "lum-get-exec",
+    "body": [
+      "GET ${1:/path} => EXEC \"python -c \"import os,urllib.parse as u;qs=os.environ.get('LMR_QUERY','');print(qs)\"\" CT=\"${2:text/plain}; charset=utf-8\""
+    ],
+    "description": "GET rule executing python -c using LMR_QUERY"
+  }
+}
